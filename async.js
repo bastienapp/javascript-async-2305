@@ -1,4 +1,4 @@
-async function getRandomValueAsync() {
+function getRandomValueAsync() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const rand = Math.random(); // 0 et 0.999999...
