@@ -1,29 +1,29 @@
 import axios from "axios";
-import { getRandomValuePromise, getRandomValueAsync } from "./async.js";
+import { getRandomValue } from "./async.js";
 
 async function onStart() {
-  console.log("before getRandomValueAsync");
+  console.log("before await getRandomValue");
   try {
-    const value = await getRandomValueAsync();
-    console.log("success getRandomValueAsync: " + value);
+    const value = await getRandomValue();
+    console.log("success await getRandomValue: " + value);
   } catch (errorMsg) {
-    console.error("error getRandomValueAsync: " + errorMsg);
+    console.error("error await getRandomValue: " + errorMsg);
   }
-  console.log("after getRandomValueAsync");
+  console.log("after await getRandomValue");
 
-  console.log("before getRandomValuePromise");
-  const promise = getRandomValuePromise();
+  console.log("before promise getRandomValue");
+  const promise = getRandomValue();
   promise
     .then((result) => {
       // call to resolve
-      console.log("success getRandomValuePromise: " + result);
+      console.log("success promise getRandomValue: " + result);
       // ici je suis sûr d'avoir le résultat
     })
     .catch((errorMsg) => {
       // call to reject
-      console.error("error getRandomValuePromise: " + errorMsg);
+      console.error("error promise getRandomValue: " + errorMsg);
     });
-  console.log("after getRandomValuePromise");
+  console.log("after promise getRandomValue");
 
   console.log("before await axios");
   try {
